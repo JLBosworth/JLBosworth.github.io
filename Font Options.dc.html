@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#E7ECF0;font-family:'Public Sans',system-ui,sans-serif;color:#0C1822;-webkit-font-smoothing:antialiased}
+</style>
+</helmet>
+
+<div style="min-width:100%;min-height:100vh;box-sizing:border-box;padding:48px;width:max-content">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.18em;color:#0E7AB8;margin-bottom:8px">// FONT OPTIONS — JLBOSWORTH.DEV</div>
+  <div style="font-family:'Public Sans';font-size:14px;color:#4A5C6A;margin-bottom:32px">Same content, each pairing applied. Pick one and I'll roll it across the site.</div>
+
+  <div style="display:flex;gap:28px;align-items:flex-start">
+    <sc-for list="{{ specs }}" as="s" hint-placeholder-count="6">
+      <div style="flex:none;width:520px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#5A6B78;margin-bottom:10px">{{ s.label }}</div>
+        <div style="background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:40px 42px">
+          <div style="font-family:{{ s.mono }};font-size:12px;letter-spacing:.18em;color:#0E7AB8;margin-bottom:20px">// FRONT-END APPLICATION DEVELOPER</div>
+          <div style="font-family:{{ s.display }};font-weight:600;font-size:46px;line-height:1.0;letter-spacing:-.025em;margin-bottom:18px">Jennifer L.<br>Bosworth</div>
+          <div style="width:90px;height:3px;background:linear-gradient(90deg,#0E7AB8,#1FA0E0);border-radius:2px;margin-bottom:22px"></div>
+          <div style="font-family:{{ s.display }};font-weight:600;font-size:28px;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px">I build the interfaces the mission runs on.</div>
+          <div style="font-family:{{ s.body }};font-size:16px;line-height:1.62;color:#4A5C6A;margin-bottom:24px">Twenty years designing and engineering UI/UX inside the SCIF — turning hard analytic problems into fast, accessible, production-grade applications. Heavier on the code than the canvas.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
+            <span style="font-family:{{ s.mono }};font-size:12.5px;color:#234455;background:#EEF4F8;border:1px solid #E2E9EF;padding:7px 12px;border-radius:7px">JavaScript (ES6+)</span>
+            <span style="font-family:{{ s.mono }};font-size:12.5px;color:#234455;background:#EEF4F8;border:1px solid #E2E9EF;padding:7px 12px;border-radius:7px">React</span>
+            <span style="font-family:{{ s.mono }};font-size:12.5px;color:#234455;background:#EEF4F8;border:1px solid #E2E9EF;padding:7px 12px;border-radius:7px">TypeScript</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:8px 13px;background:#EAF5FC;border:1px solid #CDE4F2;border-radius:20px;width:fit-content">
+            <span style="width:7px;height:7px;border-radius:50%;background:#19B26B"></span>
+            <span style="font-family:{{ s.mono }};font-size:11px;letter-spacing:.06em;color:#0A5C8C;font-weight:500">TS/SCI · CI POLY · ACTIVE</span>
+          </div>
+          <div style="font-family:{{ s.body }};font-size:12.5px;color:#94A4B0;margin-top:24px;border-top:1px solid #EEF2F6;padding-top:14px">{{ s.note }}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      specs: [
+        { label: 'CURRENT', display: "'Space Grotesk', sans-serif", body: "'IBM Plex Sans', sans-serif", mono: "'IBM Plex Mono', monospace", note: 'Space Grotesk + IBM Plex Sans + IBM Plex Mono — the live site today.' },
+        { label: 'OPTION A', display: "'Sora', sans-serif", body: "'Public Sans', sans-serif", mono: "'IBM Plex Mono', monospace", note: 'Sora + Public Sans + IBM Plex Mono — geometric, modern, keeps the technical mono accents.' },
+        { label: 'OPTION B', display: "'Manrope', sans-serif", body: "'Manrope', sans-serif", mono: "'IBM Plex Mono', monospace", note: 'Manrope throughout — one clean humanist sans, friendly and quiet.' },
+        { label: 'OPTION C', display: "'Schibsted Grotesk', sans-serif", body: "'Public Sans', sans-serif", mono: "'IBM Plex Mono', monospace", note: 'Schibsted Grotesk + Public Sans — editorial, sharp, a little more character.' },
+        { label: 'OPTION D', display: "'Geist', sans-serif", body: "'Geist', sans-serif", mono: "'Geist Mono', monospace", note: 'Geist + Geist Mono — developer-native, neutral and precise.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
