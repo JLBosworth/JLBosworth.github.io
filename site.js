@@ -27,8 +27,9 @@ const setMotion = (p, save) => { orbit.paused = p; mb.textContent = p ? 'Play mo
 mb.addEventListener('click', () => setMotion(!orbit.paused, true)); setMotion(orbit.paused, false);
 window.orbit = orbit;
 
-// email is stored encoded and only assembled in the visitor's browser
+// the address is never shown or placed in the page: it is decoded only when someone clicks "Email me"
 const m = document.getElementById('mail');
-if (m) { const dec = s => atob(s).split('').reverse().join(''), addr = dec(m.dataset.u) + '\u0040' + dec(m.dataset.d);
-  m.href = 'mailto:' + addr; document.getElementById('mailtext').textContent = addr; }
+if (m) m.addEventListener('click', e => { e.preventDefault();
+  const dec = s => atob(s).split('').reverse().join('');
+  location.href = 'mai' + 'lto:' + dec(m.dataset.u) + String.fromCharCode(64) + dec(m.dataset.d); });
 }
